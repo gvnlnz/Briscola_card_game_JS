@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Briscola</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="intro">
+            <div id="title">
+                <h1>Briscola</h1>
+                <p>by Lorenzo Gaviani</p>
+            </div>
+            <div id="cardAnimation"></div>
+            <button name="playButton" id="playButton">Play</button>
+        </div>
+
+        <div id="gameSection">
+            
+            <div id="pcSection">
+                <div id="pcCardArea1" class="cardArea pcArea"></div>
+                <div id="pcCardArea2" class="cardArea pcArea"></div>
+                <div id="pcCardArea3" class="cardArea pcArea"></div>
+            </div>
+
+            <div id="duelSection">
+                <div id="briscola" class="deckArea"></div>
+                <div id="duelArea"></div>
+            </div>
+            
+            <div id="playerSection">
+                <div id="playerCardArea1" class="cardArea"></div>
+                <div id="playerCardArea2" class="cardArea"></div>
+                <div id="playerCardArea3" class="cardArea"></div>
+            </div>
+
+        </div>
+
+        <script type="module" src="./js/index.js"></script>
+    </body>
+</html>
