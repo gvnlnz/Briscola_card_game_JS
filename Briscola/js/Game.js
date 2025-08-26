@@ -1,7 +1,7 @@
 import { Deck } from "./Deck.js"
 import { Player } from "./Player.js"
 import { PC } from "./PC.js"
-import {drawCard, showStats} from "./Utils.js"
+import {drawCard, showStats, safeExit} from "./Utils.js"
 
 class Game {
     
@@ -17,7 +17,7 @@ class Game {
         const player = new Player("player")
 
         // rimozione schermata iniziale
-        document.getElementById("intro").style.display = "none"
+        document.getElementById("Home").style.display = "none"
 
         // inserimento area di gioco
         const gameSection = (document.getElementById("gameSection")
@@ -44,11 +44,15 @@ class Game {
 
         let playerCard, pcCard, winner
         let turn = Math.random() > 0.5 ? "player" : "pc"
+        const quitBtn = document.querySelector('#quitBtn.btn')
         
         while (player.cards.length > 0 || pc.cards.length > 0) {
+            
+            quitBtn.addEventListener('click', () => {safeExit()})
+            
             if (deck.cards.length === 0) {
                 console.log("Il deck è vuoto")
-                const briscolaArea = document.getElementById("briscola")
+                const briscolaArea = document.getElementById("dealArea")
                 Array.from(briscolaArea.children).forEach((child) => {
                     child.remove()
                 })
@@ -60,7 +64,6 @@ class Game {
                 await this.delay(700)
 
                 pcCard = await pc.pcTurn()
-                await this.delay(700)
             } else {
                 await this.delay(700)
                 pcCard = await pc.pcTurn(pc, deck)
@@ -68,8 +71,8 @@ class Game {
                 await this.delay(200)
                 
                 playerCard = await player.playerTurn(player, deck)
-                await this.delay(700)
             }
+            await this.delay(700)
             
             turn = await this.processTurn(pcCard, playerCard, deck, player, pc, turn, briscola)
 

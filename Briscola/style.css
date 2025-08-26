@@ -1,214 +1,177 @@
-html {
-    margin: 0;
-    padding: 0;
+* {font-family: 'Inter'; padding: 0; margin: 0;}
+
+/* Prevent scrolling on the entire page */
+html, body {
+    overflow: hidden;
+    height: 100%;
 }
 
-body {
-    font-family: "Inter", Arial, Helvetica, sans-serif;
-    line-height: 1;
-    font-size: 16px;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: #8c3bbe;
-}
-
-#intro {
-    display: flex;
-    height: 100vh;
+#Home {
     flex-direction: column;
-    justify-content: center;
-}
-
-#title,
-#title h1,
-#title p {
-    text-align: center;
-    color: white;
-    margin: 0;
-    padding: 5px;
-}
-
-#cardAnimation {
-    margin: 20px;
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    width: 100vw;
+    height: 100vh;
+    gap: 3vw;
+
+    > #title {
+        text-align: center;
+    }
 }
 
-#cardItem img {
-    max-height: 150px;
-    border-radius: 15px;
+#createGame {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+    > .btnContainer{
+        gap: 6vw;
+        
+        > #joinMatchBtn, #createMatchBtn {
+            height: 35vh;
+            font-size: 1rem;
+        }
+    }
 }
 
-#playButton {
-    border-radius: 1rem;
-    border: none;
-    font-size: 1.3rem;
-    font-weight: bold;
-    padding: 10px 50px;
-    margin: 10px auto;
-    box-shadow: 1px 1px 5px rgb(86, 84, 84);
+#pasteCode{
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+    > .codeContainer {
+        flex-direction: column;
+        gap: 2vw;
+    }
 }
 
-#playButton:hover {
-    box-shadow: none;
+#copyCode {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+    > .codeContainer {
+        flex-direction: column;
+        text-align: center;
+        
+        > .box {
+            margin-top: 1vh;
+            > .display {
+                border: 1px solid #000;
+                height: 3vh;
+                width: 40vw;
+                margin-bottom: 1vh;
+            }
+        }
+    }
 }
 
 #gameSection {
+    background-color: rgb(207, 154, 232);
+    flex-direction: column;
     display: none;
-    flex-direction: column;
-    max-height: 96vh;
-    max-width: 98vw;
-    margin: 2vh 1vw;
-}
-
-#pcSection,
-#duelSection,
-#playerSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 33vh;
-}
-
-.pcArea,
-.deckArea {
-    position: relative;
-}
-
-.pcArea > .cardImage,
-.deckArea > img.cardImage {
-    position: absolute;
-    z-index: 0;
-}
-
-.pcArea > .coverImage,
-.deckArea > img.coverImage {
-    position: absolute;
-    z-index: 1;
-}
-
-.cardArea,
-.deckArea {
-    width: 30%;
-    height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.deckArea > img.cardImage {
-    left: 55px;
-    rotate: 35deg;
-}
-
-#duelArea {
-    position: relative;
-    width: 67%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-#duelArea > .playerCardImage {
-    position: absolute;
-    right: 20px;
-}
-
-#duelArea > .pcCardImage {
-    position: absolute;
-    top: 40px;
-    left: 50px;
-    border-right: 1px solid rgb(199, 193, 193);
-}
-
-.cardImage,
-.coverImage {
-    border: 2px solid #0f0f0f;
-    height: 180px;
-    border-radius: 1rem;
-}
-
-.coverImage {
-    width: 112px;
-}
-
-img.briscolaImage {
-    position: absolute;
-    left: 55px;
-    height: 170px;
-    border-radius: 1rem;
-    z-index: 0;
-    transform: rotate(15deg);
-}
-
-img.deckImage {
-    position: absolute;
-    border: 1.5px solid #0f0f0f;
-    left: 5px;
-    width: 110px;
-    height: 178px;
-    border-radius: 1rem;
-    z-index: 1;
-}
-
-.statsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 24px rgba(44, 19, 56, 0.18);
-    padding: 2rem 2.5rem;
-    min-width: 260px;
-    max-width: 90vw;
-    margin: 0 auto;
-    gap: 1rem;
-    font-size: 1.2rem;
-    color: #3d2060;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-
-.resultText {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #8c3bbe;
-    margin-bottom: 0.5rem;
-    text-align: center;
-}
-
-.playerPoints,
-.pcPoints {
-    font-size: 1.1rem;
-    color: #3d2060;
-    margin-bottom: 0.2rem;
-    text-align: center;
-}
-
-@keyframes scrollX {
-    0% {
-        transform: translateX(100%);
+    height: 100vh;
+    width: 100vw;
+    
+    > #pcSection, #duelSection, #playerSection, [id*="Area"]{
+        height: 31vh;
+        width: 98vw;
     }
-    100% {
-        transform: translateX(-1000%);
+
+    > #duelSection {
+        & #dealArea {
+            height: 31vh;
+            width: 40vw;
+            > .cardImage, .deckImage{
+                position: absolute;
+            }
+            > .cardImage {
+                transform: rotate(15deg);
+                margin-left: 10vw;
+                z-index: 0;
+            }
+        }
+        & #duelArea {
+            z-index: 1;
+            height: 31vh;
+            width: 60vw;
+
+            > .pcCardImage{
+                position: absolute;
+                margin-left: 5vw;
+            }
+            > .playerCardImage {
+                position: absolute;
+                right: 5vw;
+            }
+        }
+    }
+
+    > #menu {
+        border: 2px solid #000;
+        border-radius: 1rem;
+        width: 98vw;
+        height: 5vh;
+        
+        > #quitBtn {
+            width: 30vw;
+        }
+        > #info {
+            width: 50vw;
+            text-align: right;
+        }
+    }
+
+    .cardImage, .deckImage {
+        height: 217px;
+        width: 123px;
+        border: 1px solid black;
+        border-radius: 1rem;
+    }
+
+
+    .statsContainer, .banner {
+        flex-direction: column;
+        background: #fff;
+        color: #000;
+        box-shadow: 0 0 1.5rem #000;
+        border-radius: 1rem;
+        padding: 1.5rem 2.5rem;
+        width: 70vw;
+        gap: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .banner {
+        position: absolute;
+        margin: auto;
+        z-index: 10;
     }
 }
 
-.scroll-x-animation {
-    animation: scrollX 100s linear infinite;
+/* buttons */
+.btn {
+    padding: 5px 20px;
+    width: 40vw;
+    border-radius: 1rem;
+    border: none;
+    background: #18b2ea;
 }
 
-@media (min-width: 391px) and (min-height: 844px) {
-    #gameSection {
-        width: 100vw;
-        height: 100vh;
-        margin: 0 auto;
-        overflow-x: hidden;
-    }
+#quitBtn {
+    color: red;
+    background: #cbcbcb;
+}
+
+#goBackBtn {
+    position: absolute;
+    padding: 0rem 1rem;
+    top: 5vh;
+    left: 6vw;
+}
+
+/* helpers */
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
