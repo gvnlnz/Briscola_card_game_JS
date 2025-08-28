@@ -6,41 +6,41 @@ class Deck {
          
         // Array di oggetti Card che istanzia ognuna delle 40 carte di un mazzo di briscola.
         this.cards = [
-            // new Card('Coppe', 'Due', 0, './assets/img/coppe2.png'),
-            // new Card('Coppe', 'Quattro', 0, './assets/img/coppe4.png'),
-            // new Card('Coppe', 'Cinque', 0, './assets/img/coppe5.png'),
-            // new Card('Coppe', 'Sette', 0, './assets/img/coppe7.png'),
-            // new Card('Coppe', 'Sei', 0, './assets/img/coppe6.png'),
-            // new Card('Coppe', 'Fante', 2, './assets/img/coppeFante.png'),
-            // new Card('Coppe', 'Cavallo', 3, './assets/img/coppeCavallo.png'),
-            // new Card('Coppe', 'Re', 4, './assets/img/coppeRe.png'),
-            // new Card('Coppe', 'Tre', 10, './assets/img/coppe3.png'),
-            // new Card('Coppe', 'Asso', 11, './assets/img/coppeAsso.png'),
+            new Card('Coppe', 'Due', 0, './assets/img/coppe2.png'),
+            new Card('Coppe', 'Quattro', 0, './assets/img/coppe4.png'),
+            new Card('Coppe', 'Cinque', 0, './assets/img/coppe5.png'),
+            new Card('Coppe', 'Sette', 0, './assets/img/coppe7.png'),
+            new Card('Coppe', 'Sei', 0, './assets/img/coppe6.png'),
+            new Card('Coppe', 'Fante', 2, './assets/img/coppeFante.png'),
+            new Card('Coppe', 'Cavallo', 3, './assets/img/coppeCavallo.png'),
+            new Card('Coppe', 'Re', 4, './assets/img/coppeRe.png'),
+            new Card('Coppe', 'Tre', 10, './assets/img/coppe3.png'),
+            new Card('Coppe', 'Asso', 11, './assets/img/coppeAsso.png'),
 
-            // new Card('Denari', 'Due', 0, './assets/img/denara2.png'),
-            // new Card('Denari', 'Quattro', 0, './assets/img/denara4.png'),
-            // new Card('Denari', 'Cinque', 0, './assets/img/denara5.png'),
-            // new Card('Denari', 'Sei', 0, './assets/img/denara6.png'),
-            // new Card('Denari', 'Sette', 0, './assets/img/denara7.png'),
-            // new Card('Denari', 'Fante', 2, './assets/img/denaraFante.png'),
-            // new Card('Denari', 'Cavallo', 3, './assets/img/denaraCavallo.png'),
-            // new Card('Denari', 'Re', 4, './assets/img/denaraRe.png'),
-            // new Card('Denari', 'Tre', 10, './assets/img/denara3.png'),
-            // new Card('Denari', 'Asso', 11, './assets/img/denaraAsso.png'),
+            new Card('Denari', 'Due', 0, './assets/img/denara2.png'),
+            new Card('Denari', 'Quattro', 0, './assets/img/denara4.png'),
+            new Card('Denari', 'Cinque', 0, './assets/img/denara5.png'),
+            new Card('Denari', 'Sei', 0, './assets/img/denara6.png'),
+            new Card('Denari', 'Sette', 0, './assets/img/denara7.png'),
+            new Card('Denari', 'Fante', 2, './assets/img/denaraFante.png'),
+            new Card('Denari', 'Cavallo', 3, './assets/img/denaraCavallo.png'),
+            new Card('Denari', 'Re', 4, './assets/img/denaraRe.png'),
+            new Card('Denari', 'Tre', 10, './assets/img/denara3.png'),
+            new Card('Denari', 'Asso', 11, './assets/img/denaraAsso.png'),
 
-            // new Card('Spade', 'Due', 0, './assets/img/spade2.png'),
-            // new Card('Spade', 'Quattro', 0, './assets/img/spade4.png'),
-            // new Card('Spade', 'Cinque', 0, './assets/img/spade5.png'),
-            // new Card('Spade', 'Sei', 0, './assets/img/spade6.png'),
-            // new Card('Spade', 'Sette', 0, './assets/img/spade7.png'),
-            // new Card('Spade', 'Fante', 2, './assets/img/spadeFante.png'),
-            // new Card('Spade', 'Cavallo', 3, './assets/img/spadeCavallo.png'),
-            // new Card('Spade', 'Re', 4, './assets/img/spadeRe.png'),
-            // new Card('Spade', 'Tre', 10, './assets/img/spade3.png'),
-            // new Card('Spade', 'Asso', 11, './assets/img/spadeAsso.png'),
+            new Card('Spade', 'Due', 0, './assets/img/spade2.png'),
+            new Card('Spade', 'Quattro', 0, './assets/img/spade4.png'),
+            new Card('Spade', 'Cinque', 0, './assets/img/spade5.png'),
+            new Card('Spade', 'Sei', 0, './assets/img/spade6.png'),
+            new Card('Spade', 'Sette', 0, './assets/img/spade7.png'),
+            new Card('Spade', 'Fante', 2, './assets/img/spadeFante.png'),
+            new Card('Spade', 'Cavallo', 3, './assets/img/spadeCavallo.png'),
+            new Card('Spade', 'Re', 4, './assets/img/spadeRe.png'),
+            new Card('Spade', 'Tre', 10, './assets/img/spade3.png'),
+            new Card('Spade', 'Asso', 11, './assets/img/spadeAsso.png'),
 
-            // new Card('Bastoni', 'Due', 0, './assets/img/bastoni2.png'),
-            // new Card('Bastoni', 'Quattro', 0, './assets/img/bastoni4.png'),
+            new Card('Bastoni', 'Due', 0, './assets/img/bastoni2.png'),
+            new Card('Bastoni', 'Quattro', 0, './assets/img/bastoni4.png'),
             new Card('Bastoni', 'Cinque', 0, './assets/img/bastoni5.png'),
             new Card('Bastoni', 'Sei', 0, './assets/img/bastoni6.png'),
             new Card('Bastoni', 'Sette', 0, './assets/img/bastoni7.png'),
@@ -72,7 +72,7 @@ class Deck {
         renderCard(briscola.imgUrl, 'cardImage', briscolaSection)
         
         // creazione del mazzo ("retro.png" che copre la briscola)
-        renderCard('../assets/img/back.png', 'deckImage', briscolaSection)
+        renderCard('assets/img/back.png', 'deckImage', briscolaSection)
         
         return briscola
     }
@@ -88,7 +88,7 @@ class Deck {
             // prime tre carte pc
             let pcCard = this.cards.shift()
             pc.cards.push(pcCard)
-            renderCard('../assets/img/back.png', 'deckImage', cardAreas[i])
+            renderCard('assets/img/back.png', 'deckImage', cardAreas[i])
             
             // prime tre carte player
             let playerCard = this.cards.shift()

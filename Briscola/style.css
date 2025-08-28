@@ -111,7 +111,8 @@ html, body {
         border-radius: 1rem;
         width: 98vw;
         height: 5vh;
-        
+        bottom: env(safe-area-inset-bottom, 0);
+
         > #quitBtn {
             width: 30vw;
         }
@@ -175,3 +176,4 @@ html, body {
     align-items: center;
     justify-content: center;
 }
+
