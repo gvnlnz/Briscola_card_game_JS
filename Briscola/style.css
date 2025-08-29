@@ -7,14 +7,15 @@
 /* Prevent scrolling on the entire page */
 html,
 body {
-    height: calc(100vh - env(safe-area-inset-bottom, 0));
+    height: 100vh;
+    align-items: start;
 }
 
 #Home {
     flex-direction: column;
     display: flex;
     width: 100vw;
-    height: calc(100vh - env(safe-area-inset-bottom, 0));
+    height: 100vh;
     gap: 3vw;
 
     > #title {
@@ -26,7 +27,7 @@ body {
     background-color: rgb(207, 154, 232);
     flex-direction: column;
     display: none;
-    height: calc(100vh - env(safe-area-inset-bottom, 0));
+    height: 94vh;
     width: 100vw;
 
     > #pcSection,
