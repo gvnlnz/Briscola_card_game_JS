@@ -7,7 +7,6 @@
 /* Prevent scrolling on the entire page */
 html,
 body {
-    overflow: hidden;
     height: calc(100vh - env(safe-area-inset-bottom, 0));
 }
 
