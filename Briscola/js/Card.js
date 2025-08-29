@@ -13,15 +13,15 @@
     - `covered`: se la carta è covered (`coperta`), verrà mostrato il suo retro (back.png).
  */
 class Card {
-    constructor (seed, figure, value, imgUrl) {
-        this.seed = seed
-        this.figure = figure
-        this.value = value
-        this.imgUrl = imgUrl
+    constructor(seed, figure, value, imgUrl) {
+        this.seed = seed;
+        this.figure = figure;
+        this.value = value;
+        this.imgUrl = imgUrl;
         this.covered = false;
 
-        if(this.covered === true) {
-            this.imgUrl = './assets/img/back.png';
+        if (this.covered === true) {
+            this.imgUrl = "./assets/img/back.png";
         }
     }
 }

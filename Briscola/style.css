@@ -1,16 +1,21 @@
-* {font-family: 'Inter'; padding: 0; margin: 0;}
+* {
+    font-family: "Inter";
+    padding: 0;
+    margin: 0;
+}
 
 /* Prevent scrolling on the entire page */
-html, body {
+html,
+body {
     overflow: hidden;
-    height: 100%;
+    height: calc(100vh - env(safe-area-inset-bottom, 0));
 }
 
 #Home {
     flex-direction: column;
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - env(safe-area-inset-bottom, 0));
     gap: 3vw;
 
     > #title {
@@ -18,90 +23,44 @@ html, body {
     }
 }
 
-#createGame {
-    width: 100vw;
-    height: 100vh;
-    display: none;
-
-    > .btnContainer{
-        gap: 6vw;
-        
-        > #joinMatchBtn, #createMatchBtn {
-            height: 35vh;
-            font-size: 1rem;
-        }
-    }
-}
-
-#pasteCode{
-    width: 100vw;
-    height: 100vh;
-    display: none;
-
-    > .codeContainer {
-        flex-direction: column;
-        gap: 2vw;
-    }
-}
-
-#copyCode {
-    width: 100vw;
-    height: 100vh;
-    display: none;
-
-    > .codeContainer {
-        flex-direction: column;
-        text-align: center;
-        
-        > .box {
-            margin-top: 1vh;
-            > .display {
-                border: 1px solid #000;
-                height: 3vh;
-                width: 40vw;
-                margin-bottom: 1vh;
-            }
-        }
-    }
-}
-
 #gameSection {
     background-color: rgb(207, 154, 232);
     flex-direction: column;
     display: none;
-    height: 100vh;
+    height: calc(100vh - env(safe-area-inset-bottom, 0));
     width: 100vw;
-    
-    > #pcSection, #duelSection, #playerSection, [id*="Area"]{
-        height: 31vh;
+
+    > #pcSection,
+    #duelSection,
+    #playerSection,
+    [id*="Area"] {
+        height: 29vh;
         width: 98vw;
     }
 
     > #duelSection {
         & #dealArea {
-            height: 31vh;
+            height: 29vh;
             width: 40vw;
-            > .cardImage, .deckImage{
-                position: absolute;
-            }
+            flex-direction: column;
+            gap: 1vh;
             > .cardImage {
-                transform: rotate(15deg);
-                margin-left: 10vw;
-                z-index: 0;
+                width: 28vw;
+                height: 23vh;
             }
         }
         & #duelArea {
             z-index: 1;
-            height: 31vh;
+            height: 29vh;
             width: 60vw;
 
-            > .pcCardImage{
-                position: absolute;
-                margin-left: 5vw;
-            }
             > .playerCardImage {
+                right: 4vw;
                 position: absolute;
-                right: 5vw;
+            }
+            > .pcCardImage {
+                right: 24vw;
+                position: absolute;
             }
         }
     }
@@ -122,15 +81,16 @@ html, body {
         }
     }
 
-    .cardImage, .deckImage {
-        height: 217px;
-        width: 123px;
+    .cardImage,
+    .deckImage {
+        height: 25vh;
+        width: 30vw;
         border: 1px solid black;
         border-radius: 1rem;
     }
 
-
-    .statsContainer, .banner {
+    .statsContainer,
+    .banner {
         flex-direction: column;
         background: #fff;
         color: #000;
@@ -163,13 +123,6 @@ html, body {
     background: #cbcbcb;
 }
 
-#goBackBtn {
-    position: absolute;
-    padding: 0rem 1rem;
-    top: 5vh;
-    left: 6vw;
-}
-
 /* helpers */
 .flex {
     display: flex;
@@ -177,3 +130,28 @@ html, body {
     justify-content: center;
 }
 
+@media (min-width: 430px) {
+    .cardImage,
+    .deckImage {
+        max-width: 180px;
+        max-height: 350px;
+    }
+
+    [id*="Area"] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn {
+        padding: 5px 20px;
+        width: 20vw;
+        border-radius: 1rem;
+        border: none;
+        background: #18b2ea;
+    }
+
+    .banner {
+        max-width: 800px;
+    }
+}

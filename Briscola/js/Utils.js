@@ -155,19 +155,43 @@ function safeExit() {
     });
 }
 
-/**
- * `randomId`
- * - Genera una stringa casuale da usare come ID.
- */
-function randomId(length = 8) {
-    let result = "";
-    const chars =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    const charsLength = chars.length;
-    for (let i = 0; i < length; i++) {
-        result += chars.charAt(Math.floor(Math.random() * charsLength));
-    }
-    return result;
+function updateDeckCards(cardsLength) {
+    const infoArea = document.getElementById("info");
+    cardsLength === 0
+        ? (infoArea.innerHTML = "Il mazzo è finito")
+        : (infoArea.innerHTML = `Carte nel mazzo: ${cardsLength}`);
+}
+
+function showTurnWinner(winner) {
+    const banner = document.createElement("div");
+    banner.className = "banner flex";
+
+    const msg = document.createElement("p");
+    banner.appendChild(msg);
+    document.getElementById("gameSection").appendChild(banner);
+
+    winner === "player"
+        ? (msg.textContent = "Hai preso tu 😲")
+        : (msg.textContent = "Ha preso lui 🫵🏻 🤣");
+
+    setTimeout(() => {
+        document.getElementById("gameSection").removeChild(banner);
+    }, 800);
+}
+
+function itsYourTurn() {
+    const banner = document.createElement("div");
+    banner.className = "banner flex";
+
+    const msg = document.createElement("p");
+    banner.appendChild(msg);
+    document.getElementById("gameSection").appendChild(banner);
+
+    msg.textContent = "Tocca a te 🏌🏻‍♂️";
+
+    setTimeout(() => {
+        document.getElementById("gameSection").removeChild(banner);
+    }, 800);
 }
 
 export {
@@ -177,5 +201,7 @@ export {
     drawCard,
     showStats,
     safeExit,
-    randomId,
+    updateDeckCards,
+    showTurnWinner,
+    itsYourTurn,
 };
