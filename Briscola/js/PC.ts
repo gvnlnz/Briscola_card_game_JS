@@ -1,7 +1,12 @@
-import { renderHand, renderCard } from "./Utils.js";
+import { Card } from './Card.ts'
+import { renderHand, renderCard } from "./Utils.ts";
 
 class PC {
-    constructor(_name) {
+    name: string;
+    cards: Card[];
+    points: number;
+
+    constructor(_name: string) {
         this.name = _name;
         this.cards = [];
         this.points = 0;
@@ -12,14 +17,14 @@ class PC {
      * - Controller del turno del pc.
      * - Leggere i commenti vicini alle istruzioni per maggiori chiarimenti.
      */
-    pcTurn() {
+    pcTurn(): Card | null {
         // seleziono gli slot HTML dove si trovano le carte del pc
-        const pcCardsHTML = document.querySelectorAll(
+        const pcCardsHTML = document.querySelectorAll<HTMLElement>(
             "#pcSection .cardArea .deckImage"
         );
 
         // seleziono slot HTML dove avverrà il gioco tra pc e player
-        const duelArea = document.getElementById("duelArea");
+        const duelArea = document.getElementById("duelArea") as HTMLElement;
         const randomIndex = Math.floor(Math.random() * this.cards.length);
         const randomCard = this.cards[randomIndex];
 

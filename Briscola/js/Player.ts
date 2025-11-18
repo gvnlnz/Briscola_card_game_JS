@@ -1,7 +1,12 @@
-import { renderCard, renderHand } from "./Utils.js";
+import { Card } from './Card.ts'
+import { renderCard, renderHand } from "./Utils.ts";
 
 class Player {
-    constructor(_name) {
+    name: string;
+    cards: Card[];
+    points: number;
+
+    constructor(_name: string) {
         this.name = _name;
         this.cards = [];
         this.points = 0;
@@ -14,10 +19,10 @@ class Player {
      *       questo perchè non è possibile sapere quanto impiegherà a decidere.
      * - Leggere i commenti vicini alle istruzioni per maggiori chiarimenti.
      */
-    playerTurn() {
+    playerTurn(): Promise<Card> {
         return new Promise((resolve) => {
             // seleziono gli slot HTML dove si trovano le carte del giocatore
-            const playerCardsHTML = document.querySelectorAll(
+            const playerCardsHTML = document.querySelectorAll<HTMLImageElement>(
                 "#playerSection .cardArea .cardImage"
             );
 
@@ -32,7 +37,7 @@ class Player {
             });
 
             // seleziono slot HTML dove avverrà il gioco tra pc e player
-            const duelArea = document.getElementById("duelArea");
+            const duelArea = document.getElementById("duelArea") as HTMLElement;
 
             console.log("tutte le cards selezionabili");
             playerCardsHTML.forEach((card, index) => {

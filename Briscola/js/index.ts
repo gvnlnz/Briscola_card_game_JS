@@ -4,9 +4,9 @@
  * Licensed under the MIT License
  */
 
-import { Game } from "./Game.js";
+import { Game } from "./Game.ts";
 
-const playBtn = document.getElementById("playBtn");
+const playBtn = document.getElementById("playBtn") as HTMLElement;
 playBtn.addEventListener("click", () => {
     const game = new Game();
     game.initGame();

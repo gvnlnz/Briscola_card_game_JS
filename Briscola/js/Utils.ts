@@ -1,13 +1,17 @@
-import { Deck } from "./Deck.js";
+import { Deck } from "./Deck.ts";
+import { Player } from "./Player.ts";
+import { PC } from "./PC.ts";
+import { Card } from "./Card.ts";
 
+const gameSection = document.getElementById('gameSection') as HTMLElement;
 /**
  * `cardAnimation`
  * - Gestisce l'animazione iniziale del gioco.
  */
-function cardAnimation() {
+function cardAnimation(): void {
     const animationDeck = new Deck();
     animationDeck.shuffle();
-    const cardAnimation = document.getElementById("cardAnimation");
+    const cardAnimation = document.getElementById("cardAnimation") as HTMLElement;
     animationDeck.cards.forEach((card) => {
         const cardContainer = document.createElement("div");
         cardContainer.id = "cardItem";
@@ -26,7 +30,7 @@ function cardAnimation() {
  * - Carica l'immagine di una carta (il suo attributo `imgUrl`) ogni volta che deve essere aggiornato.
  * - Gestisce gli elementi HTML neccessari affinchè venga mostrato tutto correttamente.
  */
-function renderCard(src, className, parent) {
+function renderCard(src: string, className: string, parent: HTMLElement): void {
     const cardImage = document.createElement("img");
     cardImage.src = src;
     cardImage.className = className;
@@ -39,8 +43,8 @@ function renderCard(src, className, parent) {
  * - Gestisce gli elementi HTML neccessari affinchè venga mostrato tutto correttamente (tramite `renderCard()`).
  * - In base al Player o al PC, mostra la carta o il suo retro.
  */
-function renderHand(cards, area) {
-    const cardAreas = document.querySelectorAll(`${area} .cardArea`);
+function renderHand(cards: Card[], area: "#pcSection" | "#playerSection"): void {
+    const cardAreas = document.querySelectorAll<HTMLElement>(`${area} .cardArea`);
     // Svuota tutte le cardArea
     cardAreas.forEach((area) => (area.innerHTML = ""));
     // Aggiungi le carte attuali
@@ -62,7 +66,7 @@ function renderHand(cards, area) {
  * `drawCard`
  * - Funzione che permette a un giocatore di pescare dal mazzo.
  */
-function drawCard(cards, deck, area) {
+function drawCard(cards: Card[], deck: Card[], area: "#pcSection" | "#playerSection"): Card | undefined {
     let card = deck.shift();
     if (card) {
         cards.push(card);
@@ -75,7 +79,7 @@ function drawCard(cards, deck, area) {
  * `showStats`
  * - A fine partita mostra il vincitore e i punteggi ottenuti.
  */
-function showStats(player, pc, winner) {
+function showStats(player: Player, pc: PC, winner: string): void {
     console.log("show stats chiamata");
     const statsContainer = document.createElement("div");
     statsContainer.className = "statsContainer flex";
@@ -107,7 +111,6 @@ function showStats(player, pc, winner) {
         window.location.reload();
     });
 
-    const gameSection = document.getElementById("gameSection");
     Array.from(gameSection.children).forEach((child) => {
         child.remove();
     });
@@ -118,8 +121,7 @@ function showStats(player, pc, winner) {
     `safeExit`
     - Permette di abbandonare la partita quando lo si desidera.
  */
-function safeExit() {
-    const gameSection = document.getElementById("gameSection");
+function safeExit(): void {
     const banner = document.createElement("div");
     banner.className = "banner flex";
 
@@ -155,42 +157,44 @@ function safeExit() {
     });
 }
 
-function updateDeckCards(cardsLength) {
-    const infoArea = document.getElementById("info");
+function updateDeckCards(cardsLength: number): void {
+    const infoArea = document.getElementById("info") as HTMLElement;
     cardsLength === 0
         ? (infoArea.innerHTML = "Il mazzo è finito")
         : (infoArea.innerHTML = `Carte nel mazzo: ${cardsLength}`);
 }
 
-function showTurnWinner(winner) {
+function showTurnWinner(winner: string): void {
     const banner = document.createElement("div");
     banner.className = "banner flex";
 
     const msg = document.createElement("p");
     banner.appendChild(msg);
-    document.getElementById("gameSection").appendChild(banner);
+
+    gameSection.appendChild(banner);
 
     winner === "player"
         ? (msg.textContent = "Hai preso tu 😲")
         : (msg.textContent = "Ha preso lui 🫵🏻 🤣");
 
     setTimeout(() => {
-        document.getElementById("gameSection").removeChild(banner);
+        gameSection.removeChild(banner);
     }, 800);
 }
 
-function itsYourTurn() {
+function itsYourTurn(): void {
     const banner = document.createElement("div");
     banner.className = "banner flex";
 
     const msg = document.createElement("p");
     banner.appendChild(msg);
-    document.getElementById("gameSection").appendChild(banner);
+
+    gameSection.appendChild(banner);
 
     msg.textContent = "Tocca a te 🏌🏻‍♂️";
 
     setTimeout(() => {
-        document.getElementById("gameSection").removeChild(banner);
+        gameSection.removeChild(banner);
     }, 800);
 }
 

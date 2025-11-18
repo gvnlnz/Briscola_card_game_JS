@@ -1,7 +1,11 @@
-import { Card } from "./Card.js";
-import { renderCard } from "./Utils.js";
+import { Card } from "./Card.ts";
+import { PC } from "./PC.ts";
+import { Player } from "./Player.ts";
+import { renderCard } from "./Utils.ts";
 
 class Deck {
+    cards: Card[];
+
     constructor() {
         // Array di oggetti Card che istanzia ognuna delle 40 carte di un mazzo di briscola.
         this.cards = [
@@ -60,7 +64,7 @@ class Deck {
      * `shuffle`
      * - Mescola il mazzo.
      */
-    shuffle() {
+    shuffle(): void {
         this.cards.sort((a, b) => 0.5 - Math.random());
     }
 
@@ -69,10 +73,12 @@ class Deck {
      * - Sceglie la briscola prendendo l'ultima carta del mazzo e la renderizza.
      * - Renderizza il retro di una carta per simboleggiare il deck "appoggiato".
      */
-    setBriscola() {
+    setBriscola(): Card {
         let briscola = this.cards[this.cards.length - 1];
 
-        const briscolaSection = document.getElementById("dealArea");
+        const briscolaSection = document.getElementById(
+            "dealArea"
+        ) as HTMLElement;
         renderCard(briscola.imgUrl, "cardImage", briscolaSection);
 
         return briscola;
@@ -82,18 +88,22 @@ class Deck {
      * `dealFirstSixCards`
      * - Distribuisce le prime 6 carte del mazzo ai giocatori, tre a testa.
      */
-    dealFirstSixCards(pc, player) {
-        const cardAreas = document.querySelectorAll(".cardArea");
+    dealFirstSixCards(pc: PC, player: Player): void {
+        const cardAreas = document.querySelectorAll<HTMLElement>(".cardArea");
         for (let i = 0; i < 3; i++) {
             // prime tre carte pc
             let pcCard = this.cards.shift();
-            pc.cards.push(pcCard);
+            if (pcCard) {
+                pc.cards.push(pcCard);
+            }
             renderCard("assets/img/back.png", "deckImage", cardAreas[i]);
 
             // prime tre carte player
             let playerCard = this.cards.shift();
-            player.cards.push(playerCard);
-            renderCard(playerCard.imgUrl, "cardImage", cardAreas[i + 3]);
+            if (playerCard) {
+                player.cards.push(playerCard);
+                renderCard(playerCard.imgUrl, "cardImage", cardAreas[i + 3]);
+            }
         }
     }
 }
