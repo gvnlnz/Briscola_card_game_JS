@@ -51,7 +51,7 @@ function renderHand(cards: Card[], area: "#pcSection" | "#playerSection"): void 
     cards.forEach((card, i) => {
         if (cardAreas[i]) {
             if (area === "#pcSection")
-                renderCard("assets/img/back.png", "deckImage", cardAreas[i]);
+                renderCard("/assets/img/back.png", "deckImage", cardAreas[i]);
             else renderCard(card.imgUrl, "cardImage", cardAreas[i]);
         }
     });
