@@ -1,0 +1,12 @@
+# netlify.toml
+
+[build]
+  # Comando per costruire il sito. Questo esegue "vite build" tramite npm.
+  command = "npm run build"
+  
+  # La cartella che viene pubblicata dopo la build. Vite crea una cartella "dist".
+  publish = "dist"
+
+[build.environment]
+  # Specifica una versione di Node.js per la build
+  NODE_VERSION = "18"
