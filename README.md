@@ -1,6 +1,6 @@
 # Briscola - Classic Italian Card Game
 
-This repository contains a card game implemented in **HTML**, **CSS**, and **JavaScript**, based on the classic rules of **Briscola**.
+This repository contains a card game implemented in **HTML**, **CSS**, and **TypeScript**, based on the classic rules of **Briscola**.
 
 ## 🃏 Game Rules
 
